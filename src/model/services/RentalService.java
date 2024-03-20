@@ -10,11 +10,9 @@ public class RentalService {
 	private Double pricePerHour;
 	private Double pricePerDay;
 	
-	private BrazilTaxService taxService;
+	private TaxService taxService;
 	
-	// para esta classe, o prof. preferiu não criar o constructor vazio.
-	// constructor com parâmetros:
-	public RentalService(Double pricePerHour, Double pricePerDay, BrazilTaxService taxService) {
+	public RentalService(Double pricePerHour, Double pricePerDay, TaxService taxService) {
 		this.pricePerHour = pricePerHour;
 		this.pricePerDay = pricePerDay;
 		this.taxService = taxService;
@@ -25,7 +23,6 @@ public class RentalService {
 		double minutes = Duration.between(carRental.getStart(), carRental.getFinish()).toMinutes();
 		double hours = minutes / 60.0;
 		
-		// cálculo do pagamento básico:
 		double basicPayment;
 		if (hours <= 12.0) {
 			basicPayment = pricePerHour * Math.ceil(hours);
@@ -38,5 +35,4 @@ public class RentalService {
 		
 		carRental.setInvoice(new Invoice(basicPayment, tax));
 	}
-
 }

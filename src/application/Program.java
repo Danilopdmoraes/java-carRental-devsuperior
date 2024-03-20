@@ -13,7 +13,6 @@ import model.services.RentalService;
 public class Program {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
@@ -45,9 +44,7 @@ public class Program {
 		System.out.println("Pagamento basico: " + String.format("%.2f", cr.getInvoice().getBasicPayment()));
 		System.out.println("Imposto: " + String.format("%.2f", cr.getInvoice().getTax()));
 		System.out.println("Pagamento total: " + String.format("%.2f", cr.getInvoice().getTotalPayment()));
-		
-		
+				
 		sc.close();
 	}
-
 }
